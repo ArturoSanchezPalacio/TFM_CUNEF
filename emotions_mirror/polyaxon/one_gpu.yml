@@ -1,0 +1,32 @@
+---
+version: 1
+
+kind: experiment
+
+environment:
+  resources:
+    cpu:
+      requests: 4
+      limits: 4
+    memory:
+      requests: 8000
+      limits: 10000
+    gpu:
+      limits: 1
+
+build:
+  image: tensorflow/tensorflow:1.13.1-gpu-py3
+  build_steps:
+  - pip install --no-cache-dir -U polyaxon-cli
+
+declarations:
+  batch_size: 64
+  epochs: 3
+  log_steps: 100
+  max_time: 8h
+  learning_rate: 1
+  learning_rate_decay: 0.9
+
+run:
+  cmd:
+  - python src/main.py train --database=FER --data /data/common/fer2013/fer2013_train.csv --model=Alex --log_steps {{ log_steps }} --batch_size {{ batch_size }} --epochs {{ epochs }} --max_time {{ max_time }} --learning_rate {{ learning_rate }} --learning_rate_decay {{ learning_rate_decay }}

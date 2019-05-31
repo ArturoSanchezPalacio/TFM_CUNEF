@@ -1,0 +1,8 @@
+title: Prolexitim Virtual Mirror
+theme: jekyll-theme-minimal
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - '.idea'
+  - '.gitignore'
+  - 'CODEOWNERS'

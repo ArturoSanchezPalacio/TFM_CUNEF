@@ -1,0 +1,29 @@
+---
+version: 1
+
+kind: experiment
+
+environment:
+  resources:
+    cpu:
+      requests: 8
+      limits: 10
+    memory:
+      requests: 16000
+      limits: 20000
+    gpu:
+      limits: 2
+
+build:
+  image: tensorflow/tensorflow:1.13.1-gpu-py3
+  build_steps:
+  - pip install --no-cache-dir -U polyaxon-cli
+
+declarations:
+  batch_size: 64
+  epochs: 5
+  log_steps: 100
+  max_time: 5min
+
+run:
+  cmd: python src/main.py train --data /data/common/fer2013/fer2013.csv --log_steps {{ log_steps }} --batch_size {{ batch_size }} --epochs {{ epochs }} --max_time {{ max_time }}

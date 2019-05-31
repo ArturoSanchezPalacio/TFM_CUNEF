@@ -1,0 +1,37 @@
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+
+
+#tas {
+	margin-left: 50px;
+	margin-top: 15px;
+	background: #d2def2;
+	padding: 50 px 50 px 50 px 50 px;
+	width: 800px;
+	border-radius: 20 px;
+	display: block;
+} 
+
+
+
+input {
+	display: inline;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	margin-left: 25px;
+	display: inline-block;
+
+}
+
+
+
+
+#after_submit {
+	visibility: hidden;
+	background: green;
+	padding: 10px 20px 10px 20px;
+	border-radius: 20px;
+	margin-left: 20px;
+}

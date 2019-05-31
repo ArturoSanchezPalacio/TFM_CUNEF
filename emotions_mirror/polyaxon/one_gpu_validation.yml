@@ -1,0 +1,24 @@
+---
+version: 1
+
+kind: experiment
+
+environment:
+  resources:
+    cpu:
+      requests: 4
+      limits: 4
+    memory:
+      requests: 8000
+      limits: 10000
+    gpu:
+      limits: 1
+
+build:
+  image: tensorflow/tensorflow:1.13.1-gpu-py3
+  build_steps:
+  - pip install --no-cache-dir -U polyaxon-cli
+
+run:
+  cmd: python src/main.py test --database RafD --data /data/common/RaFD --model Alex --outputs_dir /outputs/jorge/emotions_mirror/experiments/263
+

@@ -1,0 +1,23 @@
+---
+version: 1
+
+kind: notebook
+
+environment:
+  resources:
+    cpu:
+      requests: 4
+      limits: 4
+    memory:
+      requests: 16000
+      limits: 20000
+    gpu:
+      requests: 1
+      limits: 1
+
+build:
+  image: tensorflow/tensorflow:1.13.1-gpu-py3-jupyter
+  build_steps:
+    - pip install --no-cache-dir -U keras
+    - pip install --no-cache-dir -U pillow
+    - pip install --no-cache-dir -U sklearn
